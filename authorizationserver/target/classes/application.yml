@@ -1,0 +1,41 @@
+server:
+  port: 8800
+
+
+spring:
+  application:
+    name: authorizationserver
+  security:
+    user:
+      name: zhangsan
+      password: zhangsan
+  thymeleaf:
+    prefix: classpath:/templates/view
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    cache: false
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    open-in-view: true
+  datasource:
+    platform: h2
+    schema:
+    - classpath*:schema.sql
+    data:
+    - classpath*:data.sql
+
+
+
+  logging:
+    level:
+      root: INFO
+      org.hibernate: INFO
+      org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+      org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+      cn.wat: debug
